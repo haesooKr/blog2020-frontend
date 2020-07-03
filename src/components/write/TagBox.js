@@ -85,7 +85,7 @@ const TagBox = () => {
 
   const onRemove = useCallback(
     (tag) => {
-      setLocalTags(localTags.filter((t) => t != tag));
+      setLocalTags(localTags.filter((t) => t !== tag));
     },
     [localTags],
   );
