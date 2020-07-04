@@ -33,4 +33,4 @@ const PostListContainer = ({ location, match }) => {
   );
 };
 
-export default PostListContainer;
+export default withRouter(PostListContainer);
