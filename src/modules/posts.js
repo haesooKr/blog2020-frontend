@@ -28,11 +28,11 @@ const initialState = {
 
 const posts = handleActions(
   {
-    [LIST_POSTS_SUCCESS]: (state, { dispatch: posts }) => ({
+    [LIST_POSTS_SUCCESS]: (state, { payload: posts }) => ({
       ...state,
       posts,
     }),
-    [LIST_POSTS_FAILURE]: (state, { dispatch: error }) => ({
+    [LIST_POSTS_FAILURE]: (state, { payload: error }) => ({
       ...state,
       error,
     }),
