@@ -17,7 +17,7 @@ const [
   UPDATE_POST,
   UPDATE_POST_SUCCESS,
   UPDATE_POST_FAILURE,
-] = createRequestSaga('write/UPDATE_POST');
+] = createRequestActionTypes('write/UPDATE_POST');
 
 export const initialize = createAction(INITIALIZE);
 export const changeField = createAction(CHANGE_FILED, ({ key, value }) => ({
@@ -32,8 +32,8 @@ export const writePost = createAction(WRITE_POST, ({ title, body, tags }) => ({
 export const setOriginalPost = createAction(SET_ORIGINAL_POST, (post) => post);
 export const updatePost = createAction(
   UPDATE_POST,
-  ({ _id, title, body, tags }) => ({
-    _id,
+  ({ id, title, body, tags }) => ({
+    id,
     title,
     body,
     tags,
