@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { listPosts } from '../../modules/posts';
 import PostList from '../../components/posts/PostList';
 
-const PostListContainer = ({ location, match }) => {
+const PostListContainer = ({ location }) => {
   const dispatch = useDispatch();
   const { posts, error, loading, user } = useSelector(
     ({ posts, loading, user }) => ({
@@ -16,12 +16,11 @@ const PostListContainer = ({ location, match }) => {
     }),
   );
   useEffect(() => {
-    const { username } = match.parse;
-    const { tag, page } = qs.parse(location.search, {
+    const { tag, username, page } = qs.parse(location.search, {
       ignoreQueryPrefix: true,
     });
     dispatch(listPosts({ tag, username, page }));
-  }, [dispatch, location.search, match]);
+  }, [dispatch, location.search]);
 
   return (
     <PostList
